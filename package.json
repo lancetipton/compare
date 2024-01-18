@@ -1,0 +1,74 @@
+{
+  "name": "@lancetipton/likeness",
+  "version": "0.0.0",
+  "description": "Likeness app",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "url": "git+https://github.com/lancetipton/likeness.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/lancetipton/likeness/issues"
+  },
+  "author": "Lance Tipton <lancetipton04@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "repos/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:tsup": "pnpm -r build:tsup",
+    "clean": "pnpm -r clean",
+    "clean:nm": "rimraf -rf ./node_modules; pnpm -r clean:nm",
+    "clean:full": "pnpm clean; pnpm clean:nm; pnpm local",
+    "cz": "cz",
+    "depcheck": "pnpm -r depcheck",
+    "si": "pnpm sync; pnpm install",
+    "sync": "syncpack fix-mismatches",
+    "test": "pnpm -r test",
+    "test:ci": "pnpm -r test:ci",
+    "validate": "pnpm -r validate"
+  },
+  "pnpm": {
+    "overrides": {
+      "@keg-hub/args-parse": "10.0.1",
+      "@keg-hub/cli-utils": "0.9.0",
+      "has": "npm:@nolyfill/has@latest",
+      "isarray": "npm:@nolyfill/isarray@latest",
+      "side-channel": "npm:@nolyfill/side-channel@latest"
+    },
+    "peerDependencyRules": {
+      "onlyBuiltDependencies": [
+        "esbuild"
+      ],
+      "ignoreMissing": [
+        "react"
+      ],
+      "allowAny": [
+        "esbuild-register",
+        "dockerode",
+        "docker-events",
+        "esbuild",
+        "react",
+        "react-dom"
+      ]
+    }
+  },
+  "dependencies": {
+    "@keg-hub/cli-utils": "0.9.0",
+    "@keg-hub/jsutils": "10.0.0",
+    "@keg-hub/parse-config": ">=2.1.0",
+    "esbuild": "0.19.7",
+    "esbuild-register": "3.5.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/node": "18.15.13",
+    "syncpack": "11.2.1"
+  }
+}

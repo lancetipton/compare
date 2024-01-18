@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ESNext",
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "paths": {
+      "@LKC/components": ["src/components"],
+      "@LKC/components/*": ["src/components/*"],
+      "@LKC/constants": [ "src/constants" ],
+      "@LKC/constants/*": [ "src/constants/*" ],
+      "@LKC/hooks": [ "src/hooks" ],
+      "@LKC/hooks/*": [ "src/hooks/*" ],
+      "@LKC/src": ["src"],
+      "@LKC/src/*": ["src/*"],
+      "@LKC/utils": ["src/utils"],
+      "@LKC/utils/*": ["src/utils/*"],
+      "@keg-hub/jsutils": ["node_modules/@keg-hub/jsutils/build/esm"],
+      "@keg-hub/jsutils/*": ["node_modules/@keg-hub/jsutils/build/esm/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
