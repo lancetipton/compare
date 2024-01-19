@@ -1,6 +1,8 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import type { TClsTypes } from '@keg-hub/jsutils/cls'
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+import { twMerge } from "tailwind-merge"
+import { cls } from '@keg-hub/jsutils/cls'
+
+export const cn = (...inputs:TClsTypes[]) => {
+  return twMerge(cls(inputs))
 }
