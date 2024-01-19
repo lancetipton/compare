@@ -12,6 +12,7 @@
   },
   "aliases": {
     "components": "@LKC/components",
-    "utils": "@LKC/utils"
+    "utils": "@LKC/utils",
+    "ui": "@LKC/components"
   }
 }

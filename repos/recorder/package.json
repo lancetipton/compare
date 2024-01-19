@@ -13,8 +13,6 @@
     "test": "echo \"No test specified\" && exit 0",
     "validate": "tsc --noEmit"
   },
-  "peerDependencies": {
-  },
   "devDependencies": {
     "@keg-hub/jsutils": "10.0.0",
     "@types/node": "20.11.0",
@@ -30,5 +28,8 @@
     "vite-plugin-comlink": "3.0.5",
     "vite-tsconfig-paths": "4.2.3",
     "vitest": "1.2.0"
+  },
+  "dependencies": {
+    "rrweb": "2.0.0-alpha.4"
   }
 }
