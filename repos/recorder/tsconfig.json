@@ -32,6 +32,8 @@
       "@LKR/src/*": ["src/*"],
       "@LKR/store": [ "src/store" ],
       "@LKR/store/*": [ "src/store/*" ],
+      "@LKR/types": ["src/types"],
+      "@LKR/types/*": ["src/types/*"],
       "@LKR/utils": ["src/utils"],
       "@LKR/utils/*": ["src/utils/*"],
       "@LKR/workers": ["src/workers"],

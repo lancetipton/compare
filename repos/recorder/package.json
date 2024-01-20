@@ -1,15 +1,26 @@
 {
   "name": "@lkns/recorder",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "files": ["dist"],
+  "types": "dist/LKR.d.ts",
+  "main": "dist/LKR.cjs.js",
+  "module": "dist/LKR.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/LKR.es.js",
+      "require": "./dist/LKR.cjs.js"
+    }
+  },
   "scripts": {
-    "build": "echo \"No build configured\" && exit 0",
+    "build": "NODE_ENV=production vite build --clearScreen false -c configs/vite.config.ts",
     "clean": "pnpm clean:dist; pnpm clean:nm",
     "clean:dist": "rm -rf dist",
     "clean:full": "pnpm clean; pnpm install",
     "clean:nm": "rm -rf node_modules",
     "depcheck": "depcheck --ignores=\"@LKR/*,@lkns/recorder\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
+    "prepublishOnly": "npm run build",
     "test": "echo \"No test specified\" && exit 0",
     "validate": "tsc --noEmit"
   },
@@ -19,6 +30,7 @@
     "@vitest/ui": "1.2.0",
     "comlink": "4.4.1",
     "esbuild-register": "3.5.0",
+    "glob": "^10.3.10",
     "happy-dom": "13.0.4",
     "million": "2.6.4",
     "postcss": "8.4.33",
@@ -26,10 +38,15 @@
     "typescript": "5.3.3",
     "vite": "5.0.11",
     "vite-plugin-comlink": "3.0.5",
+    "vite-plugin-dts": "^3.7.1",
+    "vite-plugin-lib-inject-css": "^1.3.0",
     "vite-tsconfig-paths": "4.2.3",
     "vitest": "1.2.0"
   },
   "dependencies": {
     "rrweb": "2.0.0-alpha.4"
-  }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
 }

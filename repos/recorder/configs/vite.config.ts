@@ -1,56 +1,66 @@
+import type { UserConfig } from 'vite'
 import 'esbuild-register'
-import path from 'path'
+
+import path from 'node:path'
+import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vite'
 import { comlink } from 'vite-plugin-comlink'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
+const root = path.join(__dirname, `..`)
 
-const rootDir = path.join(__dirname, '..')
-// @ts-ignore
 export default defineConfig(async () => {
   return {
-    root: rootDir,
+    root,
+    output: {
+      entryFileNames: `[name].js`,
+      assetFileNames: `assets/[name][extname]`,
+    },
     build: {
       minify: false,
       emptyOutDir: true,
+      copyPublicDir: false,
       lib: {
-        entry: path.resolve(__dirname, '../src/index.ts'),
-        name: 'RaceEditor',
-        fileName: 'raceEditor',
+        name: `LKR`,
+        formats: [`es`, `cjs`],
+        entry: path.resolve(root, `src/index.ts`),
+        fileName: (format:string) => `LKR.${format}.js`,
       },
       rollupOptions: {
-        external: ['react', 'react-dom'],
+        external: [`react`, `react-dom`, `react/jsx-runtime`],
         output: {
           globals: {
-            react: 'react',
-            'react-dom': 'ReactDOM',
+            react: `react`,
+            [`react-dom`]: `ReactDOM`,
           },
         },
       },
     },
     optimizeDeps: {
       esbuildOptions: {
-        target: 'esnext'
+        target: `esnext`
       },
     },
     esbuild: {
-      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+      logOverride: { [`this-is-undefined-in-esm`]: `silent` }
     },
     plugins: [
       comlink(),
       tsconfigPaths(),
+      libInjectCss(),
+      dts(),
     ],
     worker: {
       plugins: () => [comlink()]
     },
     test: {
       globals: true,
-      environment: 'happy-dom',
-      setupFiles: 'scripts/setup',
-      include: ['**/test.{ts,tsx}']
+      environment: `happy-dom`,
+      setupFiles: `scripts/setup`,
+      include: [`**/test.{ts,tsx}`]
     }
-  }
-
+  } as UserConfig
 })
 
 
