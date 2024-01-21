@@ -44,7 +44,9 @@ export class Player {
   playing = () => Boolean(this.#player)
 
   on = (name:TListenerName, cb:TPlayListenCB) => {
-    const off = () => this.#listeners[name] = this.#listeners[name].filter(func => func !== cb)
+    const off = () => {
+      this.#listeners[name] = this.#listeners[name].filter(func => func !== cb)
+    }
 
     if(this.playing()) this.#player?.on?.(name, cb)
     else if(!this.#listeners[name]) this.#listeners[name] = [cb]
