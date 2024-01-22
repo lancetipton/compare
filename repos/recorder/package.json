@@ -3,14 +3,18 @@
   "private": true,
   "type": "module",
   "version": "0.0.0",
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "index.js",
+    "index.cjs"
+  ],
   "types": "dist/LKR.d.ts",
-  "main": "dist/LKR.cjs.js",
-  "module": "dist/LKR.es.js",
+  "main": "index.cjs",
+  "module": "index.js",
   "exports": {
     ".": {
-      "import": "./dist/LKR.es.js",
-      "require": "./dist/LKR.cjs.js"
+      "import": "./index.js",
+      "require": "./index.cjs"
     }
   },
   "scripts": {

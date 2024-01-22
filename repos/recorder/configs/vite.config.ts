@@ -22,10 +22,10 @@ export default defineConfig(async () => {
       emptyOutDir: true,
       copyPublicDir: false,
       lib: {
-        name: `LKR`,
+        name: `Likeness`,
         formats: [`es`, `cjs`],
-        entry: path.resolve(root, `src/index.ts`),
-        fileName: (format:string) => `LKR.${format}.js`,
+        entry: path.resolve(root, `src/init.ts`),
+        fileName: (format:string) => `Likeness.${format}.js`,
       },
       rollupOptions: {
         external: [`react`, `react-dom`, `react/jsx-runtime`],

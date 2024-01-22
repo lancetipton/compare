@@ -39,6 +39,7 @@
       "@LKT/styles/*": [ "src/styles/*" ],
       "@LKT/utils": ["src/utils"],
       "@LKT/utils/*": ["src/utils/*"],
+      "@likeness/recorder": ["../recorder/src/init.ts"],
       "@keg-hub/jsutils": ["node_modules/@keg-hub/jsutils/build/esm"],
       "@keg-hub/jsutils/*": ["node_modules/@keg-hub/jsutils/build/esm/*"]
     }
