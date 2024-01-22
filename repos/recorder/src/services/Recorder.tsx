@@ -1,6 +1,6 @@
 import type {
   TRecOpts,
-  TEmitCB
+  TRecEmitCB
 } from '@LKR/types'
 
 import { record } from 'rrweb'
@@ -9,15 +9,15 @@ import { exists } from '@keg-hub/jsutils/exists'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
 
 export type TRecorderOpts = {
-  onEmit?:TEmitCB
   record?:TRecOpts
+  onEmit?:TRecEmitCB
   autoStart?:boolean
   autoClean?:boolean
 }
 
 export class Recorder {
 
-  onEmit:TEmitCB[]=[]
+  onEmit:TRecEmitCB[]=[]
   autoClean?:boolean=true
   autoStart?:boolean=false
   #stop:ReturnType<typeof record>
@@ -40,11 +40,11 @@ export class Recorder {
 
   recording = () => Boolean(this.#stop)
 
-  listen = (onEmit:TEmitCB) => {
+  listen = (onEmit:TRecEmitCB) => {
     onEmit && this.onEmit?.push?.(onEmit)
   }
 
-  #emit:TEmitCB = (evt, checkout) => {
+  #emit:TRecEmitCB = (evt, checkout) => {
     Promise.all(this.onEmit?.map?.(async cb => cb(evt, checkout)))
   }
 

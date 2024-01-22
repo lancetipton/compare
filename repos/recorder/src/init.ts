@@ -1,10 +1,21 @@
-import type { TInitOpts } from '@LKR/types'
+import type { TLKROpts } from '@LKR/LKR'
+import type { TLikenessOpts } from '@LKR/Likeness'
+import type { Player, TPlayerOpts } from '@LKR/services/Player'
+import type { Recorder, TRecorderOpts } from '@LKR/services/Recorder'
+import type {
+  TInitOpts,
+  TPlayEvt,
+  TPlayEvts,
+  TRecEmitCB,
+  TPlayListenCB,
+} from '@LKR/types'
+
 
 import { LKR } from '@LKR/LKR'
 import { ife } from '@keg-hub/jsutils/ife'
 import { getTop } from '@LKR/utils/getTop'
-import { Likeness } from '@LKR/src/Likeness'
-import { LKR_OPTS_KEY } from '@LKR/constants'
+import { Likeness } from '@LKR/Likeness'
+import { LKNS_OPTS_KEY } from '@LKR/constants'
 import { storage } from '@LKR/services/Storage'
 import { resolveUI } from '@LKR/utils/resolveUI'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
@@ -15,7 +26,7 @@ const { promise, resolve, reject, clean } = resolveUI()
 top.Likeness = promise
 
 const getOptions = () => {
-  const passed = (top?.[LKR_OPTS_KEY] ?? emptyObj) as TInitOpts
+  const passed = (top?.[LKNS_OPTS_KEY] ?? emptyObj) as TInitOpts
   const stored = (storage.getOptions() ?? emptyObj) as TInitOpts
 
   return {
@@ -43,5 +54,20 @@ const onLoad = async () => {
 
 ife(() => top.onload = onLoad)
 
-
-
+export type {
+  Player,
+  Recorder,
+  Likeness,
+  TLKROpts,
+  TInitOpts,
+  TPlayEvt,
+  TPlayEvts,
+  TRecEmitCB,
+  TPlayerOpts,
+  TPlayListenCB,
+  TRecorderOpts,
+  TLikenessOpts,
+}
+export {
+  LKNS_OPTS_KEY
+} from '@LKR/constants'
