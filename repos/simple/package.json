@@ -1,0 +1,33 @@
+{
+  "name": "@lkns/simple",
+  "version": "0.1.0",
+  "description": "Simple framework",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "echo \"No build configured\" && exit 0",
+    "clean": "pnpm clean:dist; pnpm clean:nm",
+    "clean:dist": "rm -rf dist",
+    "clean:full": "pnpm clean; pnpm install",
+    "clean:nm": "rm -rf node_modules",
+    "depcheck": "depcheck --ignores=\"@LKR/*,@likeness/simple\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
+    "test": "echo \"No test specified\" && exit 0",
+    "validate": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@keg-hub/jsutils": "10.0.0",
+    "@types/node": "20.9.4",
+    "typescript": "5.3.3"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Lance Tipton",
+    "email": "lancetipton04@gmail.com",
+    "url": "https://github.com/lancetipton"
+  },
+  "bugs": {
+    "url": "https://github.com/lancetipton/likeness/issues",
+    "email": "lancetipton04@gmail.com"
+  },
+  "homepage": "https://github.com/lancetipton/likeness#readme"
+}

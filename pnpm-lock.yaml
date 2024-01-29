@@ -222,6 +222,9 @@ importers:
 
   repos/recorder:
     dependencies:
+      '@lkns/simple':
+        specifier: workspace:*
+        version: link:../simple
       rrweb:
         specifier: 2.0.0-alpha.4
         version: 2.0.0-alpha.4
@@ -277,6 +280,18 @@ importers:
       vitest:
         specifier: 1.2.0
         version: 1.2.0(@types/node@20.11.0)(@vitest/ui@1.2.0)(happy-dom@13.0.4)
+
+  repos/simple:
+    devDependencies:
+      '@keg-hub/jsutils':
+        specifier: 10.0.0
+        version: 10.0.0
+      '@types/node':
+        specifier: 20.9.4
+        version: 20.9.4
+      typescript:
+        specifier: 5.3.3
+        version: 5.3.3
 
   repos/todomvc:
     dependencies:

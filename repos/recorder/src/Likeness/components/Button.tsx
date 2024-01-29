@@ -1,10 +1,13 @@
-import type { TElement, TElAttrs, TEElement } from './Elements'
+import type { TElAttrs, TEElement } from '@lkns/simple'
 
-import { Elements } from './Elements'
 import { cls } from '@keg-hub/jsutils/cls'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
+import {
+  Div,
+  Img,
+  Button as Btn,
+} from '@lkns/simple'
 
-const { Div, Button:Btn, Img } = Elements
 
 export type TButton = TElAttrs & {
   icon?:TElAttrs
@@ -15,13 +18,13 @@ export type TButton = TElAttrs & {
 }
 
 const Icon = (props:TElAttrs=emptyObj) => {
-  return Div({className: cls(`lk-btn-icon-container`)}, Img({
+  return Div({className: `lk-btn-icon-container`}, Img({
     ...props,
-    className: cls(`lk-btn-icon`, props.className)
+    className: [`lk-btn-icon`, props.className as string]
   }))
 }
 
-export const Button = (props:TButton=emptyObj, kids?:TEElement) => {
+export const Button = (props:TButton=emptyObj, ...kids:TEElement[]) => {
   const {
     icon,
     text,
@@ -31,10 +34,10 @@ export const Button = (props:TButton=emptyObj, kids?:TEElement) => {
     ...rest
   } = props
 
-  return Div({className: cls(`lk-btn-container`, className)},
-    Btn({...rest, className: cls(`lk-btn`, buttonCls)},
+  return Div({className: [`lk-btn-container`, className]},
+    Btn({...rest, className: [`lk-btn`, buttonCls]},
       icon && icon?.src && Icon(icon),
-      text && Div({className: cls(`lk-btn-text-container`)}, text),
+      text && Div({className: `lk-btn-text-container`}, text),
       children
     )
   )

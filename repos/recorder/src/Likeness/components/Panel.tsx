@@ -1,28 +1,44 @@
-import type { TElement, TElAttrs, TEElement } from './Elements'
+import type { UI } from '../UI'
+import type { TStoreActs, TElAttrs, TEElement } from '@lkns/simple'
 
-import { Elements } from './Elements'
+import { Button } from './Button'
+import { Div } from '@lkns/simple'
 import { cls } from '@keg-hub/jsutils/cls'
-import { emptyObj } from '@keg-hub/jsutils/emptyObj'
+import { Watch } from '@LKR/store/reducer'
 
-const { Div } = Elements
-
-export type TPanel = TElAttrs & {
+export type TPanel = TStoreActs & TElAttrs & {
+  UI:UI
   panelCls?:string
   children?:TEElement
 }
 
-export const Panel = (props:TPanel=emptyObj, kids?:TEElement) => {
+const PanelComp = (props:TPanel) => {
   const {
-    children=kids,
+    UI,
+    state,
+    dispatch,
+    children,
     className,
     panelCls,
     ...rest
   } = props
-  
+
+  const { recording } = state
+
   return Div({className: cls(`lk-panel-container`, className)},
-    Div({
-      ...rest,
-      className: cls(`lk-panel`, props.panelCls)
-    }, children)
+    Div({...rest, className: [`lk-panel`, props.panelCls] },
+      Div({className: `lk-actions-container`},
+        Button({
+          buttonCls: `lk-record-action`,
+          onclick: () => dispatch({
+            payload: !recording,
+            type: `Set-Recording`,
+          })
+        }, recording ? `Stop` : `Record`)
+      )
+    )
   )
 }
+
+export const Panel = Watch(PanelComp)
+// export const Panel = PanelComp
