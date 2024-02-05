@@ -1,48 +1,70 @@
-import {TState, TStoreActs, TComponent} from "../types"
+import {
+  TWrapCB,
+  TElAttrs,
+  TChildEls,
+  TComponent,
+  TOnMutation,
+} from "../types"
 
-const onObserve = (el:Node, callback:any, parent=el.parentNode) => {
+type TMutWithParent = MutationObserver & { __parent:SVGElement|HTMLElement|ParentNode|undefined }
+
+const onObserve = (el:Node, callback:TOnMutation, parent=el.parentNode) => {
+  if(!parent)
+    return console.log(`Can not watch Element, no parent node found`, el)
+
   const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
-      console.log(mutation)
-      
       mutation.type === `childList`
         && mutation.removedNodes.length > 0
         && mutation.removedNodes[0] === el
         && callback()
     })
-  }
-  )
+  }) as TMutWithParent
 
-  parent
-    ? observer.observe(parent, { childList: true })
-    : console.log(`Can not watch Element, no parent node found`, el)
+  observer.observe(parent, { childList: true })
+  observer.__parent = parent
 
   return observer
 }
 
-export const wrap = <T extends TState=TState>(
-  slice:TStoreActs<T>,
-  Component:TComponent
+export const wrap = (
+  cb:TWrapCB,
+  Component:TComponent,
+  exProps:TElAttrs={}
 ) => {
-  let observer:MutationObserver
+  let observer:TMutWithParent|undefined
   let El:SVGElement|HTMLElement|undefined
 
-  return (props:Record<string, any>, ...rest:any[]) => {
-    El = Component({...props, ...slice}, ...rest)
+  return (props:TElAttrs={}, ...rest:TChildEls[]) => {
+    // Initial element render
+    El = Component({...props, ...exProps}, ...rest)
 
+    // Add hook to watch for changes to the above element being replaced
     requestAnimationFrame(() => {
-      slice.watch((updated) => {
+      // This call should register a watcher in the parent caller
+      // The watcher should rerender the component, and call the callback passing it in
+      // So that it can be replaced in the dom
+      cb?.(props, rest, (Replaced:SVGElement|HTMLElement, onMutation?:TOnMutation) => {
         const parent = El?.parentNode
-        const Replaced = Component({...props, ...slice, state: updated}, ...rest)
-        El?.replaceWith(Replaced)
-        El = undefined
-        El = Replaced
-        observer?.disconnect?.()
-        observer = onObserve(Replaced, () => slice.forget(), parent)
+        if(Replaced !== El){
+          El?.replaceWith(Replaced)
+          El = undefined
+          El = Replaced
+        }
+
+        if(observer?.__parent === parent) return
+
+        if(observer){
+          observer.__parent = undefined
+          observer?.disconnect?.()
+        }
+
+        const observing = onObserve(Replaced, () => onMutation?.(), parent)
+        observer = observing ? observing : undefined
+
       })
     })
 
     return El
   }
-
 }

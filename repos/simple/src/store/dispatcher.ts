@@ -91,7 +91,13 @@ export const create = <T extends TState=TState>(
     },
   } as TStoreActs<T>
 
-  slice.wrap = (Component:TComponent) => wrap(slice, Component)
+  slice.wrap = (Component:TComponent) => wrap((props, rest, replaceCB:any) => {
+    slice.watch((updated) => {
+      const Replaced = Component({...props, ...slice, state: updated}, ...rest)
+      replaceCB(Replaced, slice.forget)
+    })
+    
+  }, Component, slice)
 
   return slice
 }

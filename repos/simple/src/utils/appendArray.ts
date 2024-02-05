@@ -18,7 +18,11 @@ import { ensureArr } from '@keg-hub/jsutils/ensureArr'
  * @param children - group of element or text to add to the passed in element
  * @return void
  */
-export const appendArray = (el:TElement, children:TChildEls, props:Record<string, any>={}):void => {
+export const appendArray = (
+  el:TElement,
+  children:TChildEls[],
+  props:Record<string, any>={}
+):void => {
   children
     .map((child) => (
       isArr(child)

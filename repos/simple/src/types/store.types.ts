@@ -1,3 +1,7 @@
+import type {
+  TElAttrs,
+  TChildEls,
+} from './simple.types'
 
 export type TState = Record<string, any>
 
@@ -36,3 +40,7 @@ export type TStoreActs<T extends TState=TState, A=unknown> = {
   dispatch: (action:TAction<A>, ...payload:any[]) => void
   wrap: (Component:TComponent) => TComponent
 }
+
+export type TOnMutation = () => any
+export type TOnWrapRenderCB = (Component:SVGElement|HTMLElement, onMutation?:TOnMutation) => void
+export type TWrapCB = (props:TElAttrs, rest:TChildEls[], cb:TOnWrapRenderCB) => void

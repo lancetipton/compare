@@ -1,4 +1,5 @@
 import type {
+  TElSx,
   TElFun,
   TElAttrs,
   TElement,
@@ -17,8 +18,10 @@ import {
 
 import { isArr } from '@keg-hub/jsutils/isArr'
 import { isFunc } from '@keg-hub/jsutils/isFunc'
+import { exists } from '@keg-hub/jsutils/exists'
 import { checkCall } from '@keg-hub/jsutils/checkCall'
 
+import { addSx } from './utils/addSx'
 import { strMatch } from './utils/strMatch'
 import { addStyles } from './utils/addStyles'
 import { appendText } from './utils/appendText'
@@ -41,18 +44,20 @@ const mapProps = (el:TElement, attrs:TElAttrs) => (
     .map(attr => {
       const value = attrs[attr]
       let custom = false
-      if(attrs[attr] === undefined || attrs[attr] === null) return
+      if(!exists(value)) return
 
       if(strMatch(attr, `for`)) attr = `htmlFor`
       if(strMatch(attr, `class`)) attr = `className`
-      if(attr.indexOf(`data-`) === 0) custom = true
-      if(attr.indexOf(`on`) === 0) attr = attr.toLowerCase()
-      
-      
+      if(attr.startsWith(`data-`)) custom = true
+      if(attr.startsWith(`on`)) attr = attr.toLowerCase()
+
       if (!custom && !(attr in el) && !AttrExceptions.includes(attr))
         return null
 
       switch(attr){
+        case `sx`:
+        case `__sx__`:
+          return addSx(el, value as string|TAttrObj, attrs)
         case `style`:
           return addStyles(el, value as TAttrObj)
         case `dataset`:
@@ -100,7 +105,7 @@ const makeAttrs = (
 const E = (
   type:string,
   attrs?:TElAttrs,
-  ...children:TChildEls
+  ...children:TChildEls[]
 ) => {
   const el = createElement(type)
   if(type === `script`) return el
@@ -112,11 +117,12 @@ const E = (
     checkCall(strMatch(attrsType, `object`) && (() => {
       const {children:kids, ...rest} = (attrs as TElAttrs)
       props = rest
-      Array.isArray(kids) ? children.push(...kids) : children.push(kids)
+      Array.isArray(kids) ? children.push(...kids) : exists(kids) && children.push(kids)
     }) as any)
 
     makeAttrs(el, props, attrsType)
   }
+  
 
   children && appendArray(el, children)
 
@@ -124,7 +130,7 @@ const E = (
 }
 
 const Elements = ElementNames.reduce((els, type) => {
-  els[type] = (attrs, ...args) => E(type.toLowerCase(), attrs, ...args)
+  els[type] = (attrs={}, ...args) => E(type.toLowerCase(), attrs, ...args)
 
   return els
 }, {} as Record<string, TElFun>)

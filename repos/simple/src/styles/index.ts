@@ -1,2 +1,3 @@
 import './styles.css'
-export {}
+export * from './theme'
+export * from './ThemeProvider'

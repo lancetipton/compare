@@ -1,4 +1,6 @@
 export const AttrExceptions = [
+  `sx`,
+  `__sx__`,
   `role`,
   `dataset`,
   `d`,
@@ -105,6 +107,7 @@ export const ElementNames = [
   `Thead`,
   `Tr`,
   `Track`,
+  `Title`,
   `U`,
   `Ul`,
   `Var`,
