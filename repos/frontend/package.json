@@ -1,6 +1,6 @@
 {
-  "name": "@lkns/frontend",
-  "description": "Frontend for likeness app",
+  "name": "@cpar/frontend",
+  "description": "Frontend for compare app",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "url": "https://github.com/lancetipton"
   },
   "bugs": {
-    "url": "https://github.com/lancetipton/likeness/issues",
+    "url": "https://github.com/lancetipton/compare/issues",
     "email": "lancetipton04@gmail.com"
   },
   "scripts": {
@@ -19,7 +19,7 @@
     "clean:dist": "rm -rf dist",
     "clean:full": "pnpm clean; pnpm install",
     "clean:nm": "rm -rf node_modules",
-    "depcheck": "depcheck --ignores=\"@*/*,@likeness,@lkns\" --ignore-patterns=build,dist,.*,coverage,temp,*jest*",
+    "depcheck": "depcheck --ignores=\"@*/*,@compare,@cpar\" --ignore-patterns=build,dist,.*,coverage,temp,*jest*",
     "preview": "vite -c configs/vite.config.ts preview",
     "test": "vitest -c configs/vite.config.ts",
     "test:ui": "vitest -c configs/vite.config.ts --ui",

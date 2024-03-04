@@ -1,1 +1,1 @@
-# Likeness - React Components
+# Compare - React Components

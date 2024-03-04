@@ -1,10 +1,10 @@
 import type {
   TRecOpts,
   TRecEmitCB
-} from '@LKR/types'
+} from '@CPAR/types'
 
 import { record } from 'rrweb'
-import { later } from '@LKR/utils/helpers'
+import { later } from '@CPAR/utils/helpers'
 import { exists } from '@keg-hub/jsutils/exists'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
 

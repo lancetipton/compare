@@ -1,6 +1,6 @@
-import type { TLKROpts } from '@LKR/LKR'
-import type { TLikenessOpts } from '@LKR/src/Likeness'
+import type { TCPAROpts } from '@CPAR/CPAR'
+import type { TCompareOpts } from '@CPAR/src/Compare'
 
-export type TInitOpts = TLKROpts & {
-  likeness?:TLikenessOpts
+export type TInitOpts = TCPAROpts & {
+  compare?:TCompareOpts
 }

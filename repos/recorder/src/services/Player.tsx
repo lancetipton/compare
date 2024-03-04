@@ -4,10 +4,10 @@ import type {
   TListenerName,
   TPlayListenCB,
   TPlayerListeners,
-} from '@LKR/types'
+} from '@CPAR/types'
 
 import { Replayer } from 'rrweb'
-import { later } from '@LKR/utils/helpers'
+import { later } from '@CPAR/utils/helpers'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
 import { emptyArr } from '@keg-hub/jsutils/emptyArr'
 import { eitherArr } from '@keg-hub/jsutils/eitherArr'

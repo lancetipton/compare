@@ -1,37 +1,37 @@
-import type { TLKROpts } from '@LKR/LKR'
-import type { TLikenessOpts } from '@LKR/Likeness'
-import type { Player, TPlayerOpts } from '@LKR/services/Player'
-import type { Recorder, TRecorderOpts } from '@LKR/services/Recorder'
+import type { TCPAROpts } from '@CPAR/CPAR'
+import type { TCompareOpts } from '@CPAR/Compare'
+import type { Player, TPlayerOpts } from '@CPAR/services/Player'
+import type { Recorder, TRecorderOpts } from '@CPAR/services/Recorder'
 import type {
   TInitOpts,
   TPlayEvt,
   TPlayEvts,
   TRecEmitCB,
   TPlayListenCB,
-} from '@LKR/types'
+} from '@CPAR/types'
 
 
-import { LKR } from '@LKR/LKR'
+import { CPAR } from '@CPAR/CPAR'
 import { ife } from '@keg-hub/jsutils/ife'
-import { getTop } from '@LKR/utils/getTop'
-import { Likeness } from '@LKR/Likeness'
-import { LKNS_OPTS_KEY } from '@LKR/constants'
-import { storage } from '@LKR/services/Storage'
-import { resolveUI } from '@LKR/utils/resolveUI'
+import { getTop } from '@CPAR/utils/getTop'
+import { Compare } from '@CPAR/Compare'
+import { CPAR_OPTS_KEY } from '@CPAR/constants'
+import { storage } from '@CPAR/services/Storage'
+import { resolveUI } from '@CPAR/utils/resolveUI'
 import { emptyObj } from '@keg-hub/jsutils/emptyObj'
 import { deepMerge } from '@keg-hub/jsutils/deepMerge'
 
 const top = getTop()
 const { promise, resolve, reject, clean } = resolveUI()
-top.Likeness = promise
+top.Compare = promise
 
 const getOptions = () => {
-  const passed = (top?.[LKNS_OPTS_KEY] ?? emptyObj) as TInitOpts
+  const passed = (top?.[CPAR_OPTS_KEY] ?? emptyObj) as TInitOpts
   const stored = (storage.getOptions() ?? emptyObj) as TInitOpts
 
   return {
     player: deepMerge(stored.player, passed.player),
-    options: deepMerge(stored.likeness, passed.likeness),
+    options: deepMerge(stored.compare, passed.compare),
     recorder: deepMerge(stored.recorder, passed.recorder),
   }
 }
@@ -39,10 +39,10 @@ const getOptions = () => {
 const onLoad = async () => {
   try {
     const { options, ...rest } = getOptions()
-    const lkr = new LKR(rest)
-    const likeness = new Likeness(options, lkr)
+    const cpar = new CPAR(rest)
+    const compare = new Compare(options, cpar)
 
-    resolve?.(likeness)
+    resolve?.(compare)
   }
   catch(err){
     reject?.(err as Error)
@@ -57,8 +57,8 @@ ife(() => top.onload = onLoad)
 export type {
   Player,
   Recorder,
-  Likeness,
-  TLKROpts,
+  Compare,
+  TCPAROpts,
   TInitOpts,
   TPlayEvt,
   TPlayEvts,
@@ -66,8 +66,8 @@ export type {
   TPlayerOpts,
   TPlayListenCB,
   TRecorderOpts,
-  TLikenessOpts,
+  TCompareOpts,
 }
 export {
-  LKNS_OPTS_KEY
-} from '@LKR/constants'
+  CPAR_OPTS_KEY
+} from '@CPAR/constants'

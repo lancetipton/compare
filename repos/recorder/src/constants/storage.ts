@@ -1,2 +1,2 @@
 
-export const LKROptions = `LKR-Options`
+export const CPAROptions = `CPAR-Options`

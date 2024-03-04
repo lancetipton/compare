@@ -1,13 +1,13 @@
 import type { ReactElement } from 'react'
-import type { AppState, Todo } from '@LKT/store/state'
+import type { AppState, Todo } from '@CPAT/store/state'
 
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { useLocation } from 'react-router-dom'
-import { recoilState } from '@LKT/store/state'
+import { recoilState } from '@CPAT/store/state'
 
 import { Layout } from './TodoList.styled'
-import { TodoItem } from '@LKT/components/TodoItem'
+import { TodoItem } from '@CPAT/components/TodoItem'
 
 export const TodoList: React.FC = () => {
   const { pathname } = useLocation()

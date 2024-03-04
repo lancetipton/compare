@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 
-import { TodoMVC } from '@LKT/components/TodoMVC'
-import { NotFound } from '@LKT/components/NotFound'
-import { useLikeness } from '@LKT/hooks/useLikeness'
-import { ErrorBoundary } from '@LKT/components/ErrorBoundary'
+import { TodoMVC } from '@CPAT/components/TodoMVC'
+import { NotFound } from '@CPAT/components/NotFound'
+import { useCompare } from '@CPAT/hooks/useCompare'
+import { ErrorBoundary } from '@CPAT/components/ErrorBoundary'
 
 
 export const App: React.FC = () => {
 
-  const Likeness = useLikeness()
+  const Compare = useCompare()
 
   return (
     <ErrorBoundary>

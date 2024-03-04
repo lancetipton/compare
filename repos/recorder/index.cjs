@@ -1,2 +1,2 @@
-const LKR = require('./dist/Likeness.cjs.js')
-module.exports = {...LKR}
+const compare = require('./dist/Compare.cjs.js')
+module.exports = {...compare}

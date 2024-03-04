@@ -10,7 +10,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { svgrComponent } from 'vite-plugin-svgr-component'
 
 const rootDir = path.join(__dirname, '..')
-const lkRoot = path.join(rootDir, `../..`)
+const cparRoot = path.join(rootDir, `../..`)
 
 export default defineConfig(async () => {
 
@@ -33,7 +33,7 @@ export default defineConfig(async () => {
     resolve:{
       alias: {
         ...aliases,
-        [`@keg-hub/jsutils`]: path.join(lkRoot, `node_modules/@keg-hub/jsutils/build/esm`),
+        [`@keg-hub/jsutils`]: path.join(cparRoot, `node_modules/@keg-hub/jsutils/build/esm`),
       },
     },
     plugins: [

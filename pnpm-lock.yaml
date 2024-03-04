@@ -222,7 +222,7 @@ importers:
 
   repos/recorder:
     dependencies:
-      '@lkns/simple':
+      '@CPAns/simple':
         specifier: workspace:*
         version: link:../simple
       rrweb:

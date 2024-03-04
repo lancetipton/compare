@@ -1,4 +1,4 @@
-import { sx } from '@lkns/simple'
+import { sx } from '@cpar/simple'
 
 
 export const ButtonContainer = sx.Div`

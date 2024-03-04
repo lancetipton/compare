@@ -1,1 +1,1 @@
-export * from './useLikeness'
+export * from './useCompare'

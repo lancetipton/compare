@@ -1,6 +1,6 @@
 import * as React from "react"
 import '@radix-ui/react-dialog'
-import { cn } from "@LKC/utils"
+import { cn } from "@CPAC/utils"
 import { Drawer as DrawerPrimitive } from "vaul"
 
 const Drawer = ({

@@ -1,14 +1,14 @@
 import type {
   TUIOpts,
   TUIState
-} from '@LKR/types'
+} from '@CPAR/types'
 
 import { theme } from './theme'
-import { ThemeProvider } from '@lkns/simple'
+import { ThemeProvider } from '@cpar/simple'
 import { isStr } from '@keg-hub/jsutils/isStr'
 import { exists } from '@keg-hub/jsutils/exists'
 import { Panel } from './components/Panel/Panel'
-import { State, Provider, Subscribe } from '@LKR/store/reducer'
+import { State, Provider, Subscribe } from '@CPAR/store/reducer'
 
 const AppUI = ThemeProvider(Provider(Panel), {theme})
 

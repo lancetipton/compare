@@ -1,4 +1,4 @@
-import type { TElFun } from '@lkns/simple'
+import type { TElFun } from '@cpar/simple'
 import { ActionsContainer } from './Actions.sx'
 
 export const Actions:TElFun = (props={}, ...kids) => {

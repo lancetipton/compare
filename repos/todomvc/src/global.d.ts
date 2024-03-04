@@ -1,8 +1,8 @@
-import type { Likeness, TInitOpts, LKNS_OPTS_KEY } from '@likeness/recorder'
+import type { Compare, TInitOpts, CPAR_OPTS_KEY } from '@compare/recorder'
 
 declare global {
   interface Window {
-    [LKNS_OPTS_KEY]: TInitOpts
-    Likeness: Promise<typeof Likeness>
+    [CPAR_OPTS_KEY]: TInitOpts
+    Compare: Promise<typeof Compare>
   }
 }

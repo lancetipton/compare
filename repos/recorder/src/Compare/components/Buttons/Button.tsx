@@ -1,4 +1,4 @@
-import type { TElFun, TElAttrs, TEElement } from '@lkns/simple'
+import type { TElFun, TElAttrs, TEElement } from '@cpar/simple'
 
 import {
   ButtonMain,
@@ -8,7 +8,7 @@ import { emptyObj } from '@keg-hub/jsutils/emptyObj'
 import {
   Div,
   Img,
-} from '@lkns/simple'
+} from '@cpar/simple'
 
 export type TButton = TElAttrs & {
   Icon?:TElFun

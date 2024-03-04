@@ -11,7 +11,7 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@LKF/components",
-    "utils": "@LKF/utils"
+    "components": "@CPAF/components",
+    "utils": "@CPAF/utils"
   }
 }

@@ -11,8 +11,8 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@LKC/components",
-    "utils": "@LKC/utils",
-    "ui": "@LKC/components"
+    "components": "@CPAC/components",
+    "utils": "@CPAC/utils",
+    "ui": "@CPAC/components"
   }
 }

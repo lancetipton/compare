@@ -1,7 +1,7 @@
 {
-  "name": "@lkns/components",
+  "name": "@cpar/components",
   "version": "0.1.0",
-  "description": "Likeness React Components",
+  "description": "Compare React Components",
   "main": "dist/index.js",
   "types": "src/index.ts",
   "scripts": {
@@ -11,7 +11,7 @@
     "clean:dist": "rm -rf dist",
     "clean:full": "pnpm clean; pnpm install",
     "clean:nm": "rm -rf node_modules",
-    "depcheck": "depcheck --ignores=\"@LKR/*,@likeness/recorder\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
+    "depcheck": "depcheck --ignores=\"@CPAR/*,@compare/recorder\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
     "test": "echo \"No test specified\" && exit 0",
     "validate": "tsc --noEmit"
   },
@@ -49,8 +49,8 @@
     "url": "https://github.com/lancetipton"
   },
   "bugs": {
-    "url": "https://github.com/lancetipton/likeness/issues",
+    "url": "https://github.com/lancetipton/compare/issues",
     "email": "lancetipton04@gmail.com"
   },
-  "homepage": "https://github.com/lancetipton/likeness#readme"
+  "homepage": "https://github.com/lancetipton/compare#readme"
 }

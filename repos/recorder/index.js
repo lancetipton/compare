@@ -1,1 +1,1 @@
-export * from './dist/Likeness.es.js'
+export * from './dist/Compare.es.js'

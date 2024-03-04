@@ -1,10 +1,10 @@
-import type { AppState, Todo } from '@LKT/store/state'
+import type { AppState, Todo } from '@CPAT/store/state'
 
 import React from 'react'
 import { useRecoilState } from 'recoil'
 import { Layout } from './UnderBar.styled'
-import { recoilState } from '@LKT/store/state'
-import { FilterLink } from '@LKT/components/FilterLink'
+import { recoilState } from '@CPAT/store/state'
+import { FilterLink } from '@CPAT/components/FilterLink'
 
 export const UnderBar: React.FC = () => {
   const [appState, setAppState] = useRecoilState<AppState>(recoilState)

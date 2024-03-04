@@ -1,10 +1,10 @@
-import type { TElFun } from '@lkns/simple'
+import type { TElFun } from '@cpar/simple'
 
 import {
   Svg,
   Path,
   Title,
-} from '@lkns/simple'
+} from '@cpar/simple'
 
 export const RecordIcon:TElFun = (props={}) => {
   return Svg({...props, viewBox: `0 0 24 24`},

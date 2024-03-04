@@ -1,2 +1,2 @@
-# Likeness
+# Compare
 Frontend Tests made easy

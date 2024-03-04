@@ -15,12 +15,12 @@
     "jsx": "react-jsx",
     "outDir": "./dist",
     "paths": {
-      "@LKS/constants": [ "src/constants" ],
-      "@LKS/constants/*": [ "src/constants/*" ],
-      "@LKS/src": ["src"],
-      "@LKS/src/*": ["src/*"],
-      "@LKS/utils": ["src/utils"],
-      "@LKS/utils/*": ["src/utils/*"],
+      "@CPAS/constants": [ "src/constants" ],
+      "@CPAS/constants/*": [ "src/constants/*" ],
+      "@CPAS/src": ["src"],
+      "@CPAS/src/*": ["src/*"],
+      "@CPAS/utils": ["src/utils"],
+      "@CPAS/utils/*": ["src/utils/*"],
       "@keg-hub/jsutils": ["node_modules/@keg-hub/jsutils/build/esm"],
       "@keg-hub/jsutils/*": ["node_modules/@keg-hub/jsutils/build/esm/*"]
     }

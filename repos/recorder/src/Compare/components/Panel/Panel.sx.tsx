@@ -1,4 +1,4 @@
-import { sx } from '@lkns/simple'
+import { sx } from '@cpar/simple'
 import { Button } from '../Buttons'
 import { Actions } from '../Actions'
 import { RecordIcon } from '../Icons'

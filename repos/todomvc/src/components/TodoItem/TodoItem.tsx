@@ -1,8 +1,8 @@
-import type { AppState, Todo, TodoListType } from '@LKT/store/state'
+import type { AppState, Todo, TodoListType } from '@CPAT/store/state'
 
 import { Layout } from './TodoItem.styled'
 import { useRecoilState } from 'recoil'
-import { recoilState } from '@LKT/store/state'
+import { recoilState } from '@CPAT/store/state'
 import React, { useState, createRef, useEffect } from 'react'
 
 interface Props {

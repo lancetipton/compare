@@ -1,8 +1,8 @@
-import type { AppState, Todo } from '@LKT/store/state'
+import type { AppState, Todo } from '@CPAT/store/state'
 
 import { useRecoilState } from 'recoil'
 import React, { createRef } from 'react'
-import { recoilState } from '@LKT/store/state'
+import { recoilState } from '@CPAT/store/state'
 import { nanoid } from '@keg-hub/jsutils/nanoid'
 
 import { Layout } from './NewTodo.styled'

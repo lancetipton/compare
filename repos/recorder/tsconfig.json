@@ -19,12 +19,12 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["vite/client", "vitest/globals"],
     "paths": {
-      "@LKR/src": ["src"],
-      "@LKR/src/*": ["src/*"],
-      "@LKR": ["src/index.ts"],
-      "@LKR/*": ["src/*"],
-      "@lkns/simple/*": ["../simple/src/*"],
-      "@lkns/simple": ["../simple/src/index.ts"],
+      "@CPAR/src": ["src"],
+      "@CPAR/src/*": ["src/*"],
+      "@CPAR": ["src/index.ts"],
+      "@CPAR/*": ["src/*"],
+      "@cpar/simple/*": ["../simple/src/*"],
+      "@cpar/simple": ["../simple/src/index.ts"],
       "@keg-hub/jsutils": ["node_modules/@keg-hub/jsutils/build/esm"],
       "@keg-hub/jsutils/*": ["node_modules/@keg-hub/jsutils/build/esm/*"]
     }

@@ -1,18 +1,18 @@
 {
-  "name": "@lancetipton/likeness",
+  "name": "@cpar/compare",
   "version": "0.0.0",
-  "description": "Likeness app",
+  "description": "Compare app",
   "main": "index.js",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
-    "url": "git+https://github.com/lancetipton/likeness.git",
+    "url": "git+https://github.com/lancetipton/compare.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/lancetipton/likeness/issues"
+    "url": "https://github.com/lancetipton/compare/issues"
   },
   "author": "Lance Tipton <lancetipton04@gmail.com>",
   "license": "MIT",

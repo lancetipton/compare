@@ -1,7 +1,7 @@
-import type { TInitOpts } from '@LKR/types'
+import type { TInitOpts } from '@CPAR/types'
 
 
-import { LKROptions } from '@LKR/constants'
+import { CPAROptions } from '@CPAR/constants'
 
 export class Storage {
   
@@ -19,8 +19,8 @@ export class Storage {
     window.localStorage.removeItem(key)
   }
 
-  getOptions = () => this.get<TInitOpts>(LKROptions, true)
-  setOptions = (opts:TInitOpts) => this.set(LKROptions, opts, true)
+  getOptions = () => this.get<TInitOpts>(CPAROptions, true)
+  setOptions = (opts:TInitOpts) => this.set(CPAROptions, opts, true)
 
 }
 

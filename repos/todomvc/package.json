@@ -1,5 +1,5 @@
 {
-  "name": "@likeness/todomvc",
+  "name": "@cpar/todomvc",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/lancetipton"
   },
   "bugs": {
-    "url": "https://github.com/lancetipton/likeness/issues",
+    "url": "https://github.com/lancetipton/compare/issues",
     "email": "lancetipton04@gmail.com"
   },
   "dependencies": {

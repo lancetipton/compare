@@ -1,5 +1,5 @@
 import type { UI } from '../../UI'
-import type { TStoreActs, TElAttrs, TEElement } from '@lkns/simple'
+import type { TStoreActs, TElAttrs, TEElement } from '@cpar/simple'
 
 import {
   PanelMain,

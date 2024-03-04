@@ -3,8 +3,8 @@ import {
   createBrowserRouter,
 } from "react-router-dom"
 
-import { Error } from '@LKF/pages/Error'
-import { Layout } from '@LKF/pages/Layout'
+import { Error } from '@CPAF/pages/Error'
+import { Layout } from '@CPAF/pages/Layout'
 
 const router = createBrowserRouter([
   {
@@ -15,14 +15,14 @@ const router = createBrowserRouter([
       {
         index: true,
         async lazy() {
-          const { Dashboard } = await import("@LKF/pages/Dashboard")
+          const { Dashboard } = await import("@CPAF/pages/Dashboard")
           return { Component: Dashboard }
         },
       },
       {
         path: `login`,
         async lazy() {
-          const { Login } = await import("@LKF/pages/Login")
+          const { Login } = await import("@CPAF/pages/Login")
           return { Component: Login }
         },
       },

@@ -22,10 +22,10 @@ export default defineConfig(async () => {
       emptyOutDir: true,
       copyPublicDir: false,
       lib: {
-        name: `Likeness`,
+        name: `Compare`,
         formats: [`es`, `cjs`],
         entry: path.resolve(root, `src/init.ts`),
-        fileName: (format:string) => `Likeness.${format}.js`,
+        fileName: (format:string) => `Compare.${format}.js`,
       },
       rollupOptions: {
         external: [`react`, `react-dom`, `react/jsx-runtime`],

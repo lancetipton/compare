@@ -5,7 +5,7 @@ export const loadConfig = () => {
 
   addToProcess(
     loadConfigs({
-      name: 'likeness',
+      name: 'compare',
       locations: [],
       env: process.env.NODE_ENV || `local`,
       

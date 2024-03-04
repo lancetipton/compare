@@ -1,7 +1,7 @@
 import './styles'
 import 'tailwindcss/tailwind.css'
 import { StrictMode } from 'react'
-import { Router } from '@LKF/router'
+import { Router } from '@CPAF/router'
 import { createRoot } from 'react-dom/client'
 
 const container = document.getElementById('root') as HTMLDivElement

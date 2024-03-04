@@ -1,4 +1,4 @@
-import { createStore } from '@lkns/simple/store'
+import { createStore } from '@cpar/simple/store'
 
 const UIState = {
   playing:false,

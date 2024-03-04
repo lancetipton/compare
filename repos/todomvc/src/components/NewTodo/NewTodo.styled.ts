@@ -1,4 +1,4 @@
-import { base } from '@LKT/styles/base'
+import { base } from '@CPAT/styles/base'
 import { styled } from 'styled-components'
 
 

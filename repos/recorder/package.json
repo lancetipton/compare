@@ -1,5 +1,5 @@
 {
-  "name": "@lkns/recorder",
+  "name": "@cpar/recorder",
   "private": true,
   "type": "module",
   "version": "0.0.0",
@@ -8,7 +8,7 @@
     "index.js",
     "index.cjs"
   ],
-  "types": "dist/LKR.d.ts",
+  "types": "dist/CPAR.d.ts",
   "main": "index.cjs",
   "module": "index.js",
   "exports": {
@@ -23,7 +23,7 @@
     "clean:dist": "rm -rf dist",
     "clean:full": "pnpm clean; pnpm install",
     "clean:nm": "rm -rf node_modules",
-    "depcheck": "depcheck --ignores=\"@LKR/*,@lkns/recorder\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
+    "depcheck": "depcheck --ignores=\"@CPAR/*,@cpar/recorder\" --ignore-patterns=build,dist,.*,coverage,temp,tmp,*jest*",
     "prepublishOnly": "npm run build",
     "test": "echo \"No test specified\" && exit 0",
     "validate": "tsc --noEmit"
@@ -48,7 +48,7 @@
     "vitest": "1.2.0"
   },
   "dependencies": {
-    "@lkns/simple": "workspace:*",
+    "@cpar/simple": "workspace:*",
     "rrweb": "2.0.0-alpha.4"
   },
   "sideEffects": [

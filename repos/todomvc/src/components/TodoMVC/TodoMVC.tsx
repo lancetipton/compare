@@ -1,13 +1,13 @@
-import type { AppState } from '@LKT/store/state'
+import type { AppState } from '@CPAT/store/state'
 
 import React, { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
 
-import { Layout } from '@LKT/styles/base'
-import { TodoList } from '@LKT/components/TodoList/TodoList'
-import { UnderBar } from '@LKT/components/UnderBar/UnderBar'
-import { NewTodo } from '@LKT/components/NewTodo/NewTodo'
-import { recoilState, LocalStorageKey } from '@LKT/store/state'
+import { Layout } from '@CPAT/styles/base'
+import { TodoList } from '@CPAT/components/TodoList/TodoList'
+import { UnderBar } from '@CPAT/components/UnderBar/UnderBar'
+import { NewTodo } from '@CPAT/components/NewTodo/NewTodo'
+import { recoilState, LocalStorageKey } from '@CPAT/store/state'
 
 export const TodoMVC: React.FC = () => {
   const appState = useRecoilValue<AppState>(recoilState)

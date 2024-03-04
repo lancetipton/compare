@@ -1,32 +1,32 @@
-import type { LKR } from '@LKR/LKR'
+import type { CPAR } from '@CPAR/CPAR'
 
 import { UI } from './UI'
 
-export type TLikenessOpts = {
+export type TCompareOpts = {
   element?:HTMLElement|string
 }
 
 
 
-export class Likeness {
-  lkr:LKR
+export class Compare {
+  cpar:CPAR
   ui:UI
 
-  constructor(opts:TLikenessOpts, lkr:LKR){
+  constructor(opts:TCompareOpts, cpar:CPAR){
     this.ui = new UI({
       root: opts.element
     })
 
-    this.lkr = lkr
+    this.cpar = cpar
   }
 
 
   clean = () => {
     // @ts-ignore
     this.element = undefined
-    this.lkr?.clean?.()
+    this.cpar?.clean?.()
     // @ts-ignore
-    this.lkr = undefined
+    this.cpar = undefined
   }
 
 }
